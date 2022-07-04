@@ -83,7 +83,7 @@ export const zéTheme = createTheme({
       light: 'rgba(72, 76, 255, 0.1)'
     },
     secondary: {
-      main: '#0EC951',
+      main: '#333',
       light: 'rgba(14, 201, 81, 0.1)'
     },
     error: {
@@ -194,9 +194,9 @@ export const zéTheme = createTheme({
       lineHeight: '150%'
     },
     text8: {
-      fontFamily: 'Inter',
-      fontSize: '14px',
-      fontWeight: 700,
+      fontFamily: 'TTCommons',
+      fontSize: '12px',
+      fontWeight: 600,
       lineHeight: '150%'
     },
     text9: {

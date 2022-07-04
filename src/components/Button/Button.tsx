@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   secondaryStyle: {
     backgroundColor: theme.palette.common.white,
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
     '&:focus': {
       boxShadow: `${alpha(theme.palette.grey[700], 0.10)} 0 0 0 0.2rem`
     },
