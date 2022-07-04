@@ -6,6 +6,19 @@ export const ProfileSection: React.FC = () => {
 
   const isMobile = useIsMobile()
 
+  const HelperMessage = () => (
+    <Stack width='90%' bgcolor='grey.50' padding={1} borderRadius={2}>
+      <Typography
+        variant='text7'
+        color='grey.500'
+        sx={{ textIndent: '1.5rem' }}
+      >
+        Quanto mais você compra no zé delivery mais pontos você acumula e pode usar esses pontos para ajudar pessoas!.
+        Mil pontos equivalem a R$100 disponíveis para doação.
+      </Typography>
+    </Stack>
+  )
+
   return (
     <>
       <Stack width='90vw' direction='row' padding={{ lg: 3 }}>
@@ -53,14 +66,10 @@ export const ProfileSection: React.FC = () => {
               </Stack>
             </Stack>
           </Stack>
-          {/* <Stack width='80%'>
-            <Typography variant='text7' color='grey.500'>Quanto mais você compra no zé delivery mais pontos você acumula e pode usar esses pontos para ajudar pessoas!. Cada mil pontos equivalem a R$100 disponíveis para doação.</Typography>
-          </Stack> */}
+          {!isMobile && <HelperMessage />}
         </Stack>
       </Stack>
-      {/* <Stack width='90%'>
-        <Typography variant='text8' color='grey.500'>Quanto mais você compra no zé delivery mais pontos você acumula e pode usar esses pontos para ajudar pessoas!. Cada mil pontos equivalem a R$100 disponíveis para doação.</Typography>
-      </Stack> */}
+      {isMobile && <HelperMessage />}
     </>
   )
 }
