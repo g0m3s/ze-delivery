@@ -1,11 +1,11 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 import Box from '@mui/material/Box'
 import { ButtonProps } from '../../Button'
 import { Stack, Typography } from '@mui/material'
 
-export type ButtonContentProps = Pick<ButtonProps, 'startIcon' | 'endIcon' | 'icon'>
+export type ButtonContentProps = Pick<ButtonProps, 'startIcon' | 'endIcon' | 'icon'> & { children: React.ReactNode }
 
-export const ButtonContent: React.FC<PropsWithChildren<ButtonContentProps>> = (props) => {
+export const ButtonContent: React.FC<ButtonContentProps> = (props) => {
   const { children, icon, endIcon, startIcon } = props
 
   if (icon) {

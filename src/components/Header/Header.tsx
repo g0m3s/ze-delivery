@@ -1,4 +1,5 @@
 import ProfilePhoto from '../../assets/ze1.png'
+import MenuIcon from '@mui/icons-material/Menu'
 import { AppBar, Stack, Toolbar } from '@mui/material'
 
 export const Header: React.FC = () => {
@@ -14,13 +15,16 @@ export const Header: React.FC = () => {
     >
       <Toolbar
         sx={{
-          height: { xs: 65, lg: 85 },
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          height: { xs: 65, lg: 85 },
+          justifyContent: 'space-between',
           backgroundColor: 'secondary.main',
         }}
       >
+        <Stack sx={{ cursor: 'pointer' }} onClick={() => alert('Menu')}>
+          <MenuIcon sx={{ color: '#FFF' }} />
+        </Stack>
         <Stack height='70%'>
           <img
             src={ProfilePhoto}

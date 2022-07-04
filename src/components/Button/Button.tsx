@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { PropsWithChildren, useState } from 'react'
 import clsx from 'clsx'
 import Stack from '@mui/material/Stack'
 import { ButtonContent } from './components'
 import { makeStyles } from '../../utils/makeStyles'
 import { alpha, darken } from '@mui/material/styles'
+import { useIsMobile } from '../../hooks/useIsMobile'
 import CircularProgress from '@mui/material/CircularProgress'
 import ButtonBase, { ButtonBaseProps } from '@mui/material/ButtonBase'
 
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     ])
   },
   primaryStyle: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.main,
     color: theme.palette.common.white,
     '&:focus': {
       boxShadow: `${alpha(theme.palette.secondary.main, 0.15)} 0 0 0 0.2rem`
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   secondaryStyle: {
     backgroundColor: theme.palette.common.white,
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
     '&:focus': {
       boxShadow: `${alpha(theme.palette.grey[700], 0.10)} 0 0 0 0.2rem`
     },
@@ -92,7 +93,8 @@ const useStyles = makeStyles((theme) => ({
  * If you want a retangular IconButton, just pass your Icon as a child component and it will
  * maintain the default paddings.
  */
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<PropsWithChildren<ButtonProps>> = (props) => {
+  const isMobile = useIsMobile()
   const {
     variant = 'primary',
     size = 'small',
@@ -121,11 +123,11 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const runFunction = () => {
     onClick && onClick()
     setCanFunctionRun(false)
-    setTimeout(()=>{
-      if(!(props.disabled || props.loading)){
+    setTimeout(() => {
+      if (!(props.disabled || props.loading)) {
         setCanFunctionRun(true)
       }
-    },1500)
+    }, 1500)
   }
 
   const verifyFunction = () => {
@@ -147,20 +149,20 @@ export const Button: React.FC<ButtonProps> = (props) => {
       <Stack
         direction='row'
         alignItems='center'
-        height={{ xs: '40px', lg: 'auto' }}
+        sx={{ height: isMobile ? '40px' : 'auto' }}
         className={clsx({
           [classes.smallStyle]: size === 'small' && !icon,
           [classes.largeStyle]: size === 'large' && !icon
         })}
       >
         <ButtonContent
+          icon={icon}
           endIcon={loading ? undefined : endIcon}
           startIcon={loading ? spinner : startIcon}
-          icon={icon}
         >
           {children}
         </ButtonContent>
       </Stack>
-    </ButtonBase>
+    </ButtonBase >
   )
 }

@@ -1,7 +1,7 @@
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Button } from '../../../Button'
+import { Button } from '@mui/material'
 import { Navigation, Pagination } from 'swiper'
 import { Typography, Stack } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -9,40 +9,57 @@ import { useIsMobile } from '../../../../hooks/useIsMobile'
 import { institutions } from '../../../../utils/institutions'
 
 export const DonateSection: React.FC = () => {
-
   const isMobile = useIsMobile()
 
   return (
-    <Stack width='100vw' mt={{ xs: 0, lg: 3 }} >
+    <Stack position='relative' width='100vw' mt={{ xs: 0, lg: 3 }} >
       <Swiper
         grabCursor
+        autoHeight
+        autoplay
         spaceBetween={20}
-        slidesPerView={isMobile ? 1.1 : 2.2}
-        modules={[Pagination, Navigation]}
         pagination={{ clickable: true }}
+        modules={[Pagination, Navigation]}
+        slidesPerView={isMobile ? 1.1 : 2.2}
         onSwiper={(swiper) => swiper.animating = true}
         style={{
           padding: 10,
           width: '95%',
-          transition: 'ease-in-out',
+          display: 'flex',
+          alignItems: 'stretch',
+          transition: 'ease-in-out'
         }}
       >
         {institutions.map(item => (
           <SwiperSlide key={item.title}>
             <Stack
-              py={2}
               p={4}
-              my={2}
+              py={2}
               color='black'
+              my={2}
               borderRadius={2}
-              sx={{
-                boxShadow: '0px 0px 8px rgba(0,0,0,.15)'
-              }}
+              justifyContent='space-between'
+              height={{ xs: '400px', lg: '300px' }}
+              boxShadow='0px 0px 8px rgba(0,0,0,.15)'
             >
-              <Typography variant='h2'>{item.title}</Typography>
-              <Typography mt={1} sx={{ textIndent: '1.5rem' }} color='grey.500' variant='text7'>{item.description}</Typography>
+              <Stack>
+                <Typography typography={{ xs: 'h3', lg: 'h2' }}>{item.title}</Typography>
+                <Typography
+                  mt={1}
+                  color='grey.500'
+                  typography={{ xs: 'text8', lg: 'text7' }}
+                  sx={{ textIndent: '1.5rem' }}
+                >
+                  {item.description}
+                </Typography>
+              </Stack>
               <Stack mt={2} width='100%' alignItems='flex-end'>
-                <Button variant='secondary' sx={{ width: '300px' }}>
+                <Button
+                  size='large'
+                  variant='contained'
+                  onClick={() => alert('nada')}
+                  sx={{ boxShadow: 2, color: '#FFF' }}
+                >
                   Fazer Doação
                 </Button>
               </Stack>
@@ -50,5 +67,6 @@ export const DonateSection: React.FC = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </Stack >)
+    </Stack>
+  )
 }

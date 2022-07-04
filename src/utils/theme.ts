@@ -195,7 +195,7 @@ export const zéTheme = createTheme({
     },
     text8: {
       fontFamily: 'TTCommons',
-      fontSize: '12px',
+      fontSize: '14px',
       fontWeight: 600,
       lineHeight: '150%'
     },
