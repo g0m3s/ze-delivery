@@ -27,7 +27,6 @@ export const ProfileSection: React.FC = () => {
           borderRadius='50%'
           alignItems='center'
           justifyContent='center'
-        // boxShadow='0px 0px 5px rgba(0,0,0,.2)'
         >
           <img
             alt='imagem de perfil'

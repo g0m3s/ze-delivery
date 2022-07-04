@@ -93,7 +93,7 @@ export const Graphic: React.FC = () => (
         }}
       >
         <Stack direction='row' justifyContent='space-between' alignItems='center'>
-          <Typography variant='h4' >Doações realizadas nos últimos meses</Typography>
+          <Typography variant='h4' >Valor nos últimos meses</Typography>
         </Stack>
         <Line data={GRAPHIC_DATA_CONFIG} options={GRAPHIC_CONFIG} height='80%' />
       </Card>

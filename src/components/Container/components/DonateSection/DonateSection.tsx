@@ -2,13 +2,14 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { Button } from '@mui/material'
+import { ContainerProps } from '../../'
 import { Navigation, Pagination } from 'swiper'
 import { Typography, Stack } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useIsMobile } from '../../../../hooks/useIsMobile'
 import { institutions } from '../../../../utils/institutions'
 
-export const DonateSection: React.FC = () => {
+export const DonateSection: React.FC<ContainerProps> = ({ SetIsDonateModalOpen }) => {
   const isMobile = useIsMobile()
 
   return (
@@ -57,7 +58,13 @@ export const DonateSection: React.FC = () => {
                 <Button
                   size='large'
                   variant='contained'
-                  onClick={() => alert('nada')}
+                  onClick={() => {
+                    window.scrollTo(0, 0)
+                    SetIsDonateModalOpen(true)
+                    setTimeout(() => {
+                      SetIsDonateModalOpen(false)
+                    }, 1500)
+                  }}
                   sx={{ boxShadow: 2, color: '#FFF' }}
                 >
                   Fazer Doação

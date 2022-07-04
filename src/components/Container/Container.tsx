@@ -1,12 +1,16 @@
 
-import { useEffect } from 'react'
+import { Dispatch, SetStateAction, useEffect } from 'react'
 import Lottie from 'react-lottie'
 import { useModal } from '../../utils/useModal'
 import { Stack, Typography } from '@mui/material'
 import heartAnimation from '../../assets/heart.json'
 import { WelcomeModal, ProfileSection, DonateSection, Graphic } from './components'
 
-export const Container: React.FC = () => {
+export interface ContainerProps {
+  SetIsDonateModalOpen: Dispatch<SetStateAction<boolean>>
+}
+
+export const Container: React.FC<ContainerProps> = ({ SetIsDonateModalOpen }) => {
   const [isModalOpen, toggleWelcomeModal] = useModal()
 
   useEffect(() => {
@@ -16,7 +20,7 @@ export const Container: React.FC = () => {
 
   return (
     <Stack alignItems='center'>
-      {/* <WelcomeModal isOpen={isModalOpen} onClose={toggleWelcomeModal} /> */}
+      <WelcomeModal isOpen={isModalOpen} onClose={toggleWelcomeModal} />
       <ProfileSection />
       <Stack direction='row' alignItems='center'>
         <Typography color='primary.main' typography={{ xs: 'h3', lg: 'h2' }}>
@@ -36,7 +40,7 @@ export const Container: React.FC = () => {
           }
         />
       </Stack>
-      <DonateSection />
+      <DonateSection SetIsDonateModalOpen={SetIsDonateModalOpen} />
       <Graphic />
     </Stack >
   )
