@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/home'>
+        <Route exact path='*'>
           <ApplicationShell />
         </Route>
       </Switch>
