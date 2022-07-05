@@ -10,7 +10,7 @@ export const DonateMessage: React.FC = () => (
     position='absolute'
     alignItems='center'
     justifyContent='center'
-    bgcolor='rgba(255, 204, 0, .95)'
+    bgcolor='primary.main'
   >
     <Stack
       bgcolor='#FFF'
