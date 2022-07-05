@@ -153,8 +153,8 @@ export const zéTheme = createTheme({
     },
     text1: {
       fontFamily: 'TTCommons',
-      fontSize: '20px',
-      fontWeight: 500,
+      fontSize: '24px',
+      fontWeight: 600,
       lineHeight: '150%'
     },
     text2: {

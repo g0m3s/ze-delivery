@@ -15,6 +15,7 @@ export const DonateSection: React.FC<ContainerProps> = ({ SetIsDonateModalOpen }
 
   return (
     <Stack position='relative' width='100vw' mt={{ xs: 0, lg: 3 }} >
+      <Slider />
       <Swiper
         grabCursor
         autoHeight
@@ -55,10 +56,8 @@ export const DonateSection: React.FC<ContainerProps> = ({ SetIsDonateModalOpen }
                   {item.description}
                 </Typography>
               </Stack>
-              {/* <Slider /> */}
               <Stack mt={2} width='100%' alignItems='flex-end'>
                 <Button
-                  size='large'
                   variant='contained'
                   onClick={() => {
                     window.scrollTo(0, 0)

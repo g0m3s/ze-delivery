@@ -10,7 +10,7 @@ export const ProfileSection: React.FC = () => {
   const [progressBarValue, setProgressBarValue] = useState(0)
 
   useEffect(() => {
-    if(progressBarValue < 70){
+    if (progressBarValue < 70) {
       setTimeout(() => {
         const timeToAdd = Math.floor(Math.random() * (10 - 3 + 1)) + 3
         setProgressBarValue(value => value += timeToAdd)
@@ -33,7 +33,7 @@ export const ProfileSection: React.FC = () => {
 
   return (
     <>
-      <Stack width='90vw' direction='row' padding={{ lg: 3 }}>
+      <Stack width={{ xs: '95vw', lg: '90vw' }} direction='row' padding={{ lg: 3 }}>
         <Stack
           padding={1}
           borderRadius='50%'
@@ -50,7 +50,12 @@ export const ProfileSection: React.FC = () => {
             }}
           />
         </Stack>
-        <Stack ml={4} paddingY={5} justifyContent='space-between'>
+        <Stack
+          paddingY={5}
+          ml={{ xs: 2.5, lg: 4 }}
+          justifyContent='space-between'
+          width={{ xs: '100%', lg: 'auto' }}
+        >
           <Typography
             mb={2}
             color='black'
@@ -59,11 +64,10 @@ export const ProfileSection: React.FC = () => {
             Jozé da silva Pereira
           </Typography>
           <Stack>
-            <Stack width={{ xs: 'auto', lg: '500px' }}>
+            <Stack width={{ xs: '100%', lg: '500px' }}>
               <LinearProgress
-                value={progressBarValue}
-                // value={80}
                 variant='determinate'
+                value={progressBarValue}
                 sx={{
                   height: '12px',
                   borderRadius: 2,
