@@ -27,15 +27,17 @@ export const Container: React.FC<ContainerProps> = ({ SetIsDonateModalOpen }) =>
           Escolha para quem doar
         </Typography>
         <Lottie
+          speed={.3}
+          // isPaused={true}
           height={60}
-          width={60}
+          width={80}
           options={{
-            loop: true,
-            autoplay: true,
+            loop: false,
+            // autoplay: true,
             animationData: heartAnimation,
             rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice'
-            }
+              preserveAspectRatio: 'xMidYMid slice',
+            },
           }
           }
         />

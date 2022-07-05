@@ -36,8 +36,8 @@ export const WelcomeModal: React.FC<DebitDialogProps> = (props) => {
 
         <Typography variant='h2' textAlign='center'>Olá! Bem vindo(a)</Typography>
         <Typography sx={{ textIndent: '1.5rem' }}>Bom, estou realmente muito muito animado para ter uma oportunidade no Zé e por isso resolvi fazer algo de diferente ao invés de só mandar meu currículo.</Typography>
-        <Typography sx={{ textIndent: '1.5rem' }}>Trouxe aqui uma "ideia de um novo produto". A ideia aqui é: o usuário do zé delivery ganha pontos ao realizar compras dentro da plataforma e pode ajudar instituições usando estes pontos.</Typography>
-        <Typography sx={{ textIndent: '1.5rem' }}>Por tudo que já vi sobre o zé, acho que esse projeto vai de encontro com o "Jeito Zé de Ser" e por isso achei que essa ideia serial legal :)</Typography>
+        <Typography sx={{ textIndent: '1.5rem' }}>Trouxe aqui uma "ideia de um novo produto". A ideia aqui é: o usuário ganha pontos ao realizar compras dentro da plataforma e pode ajudar instituições usando estes pontos.</Typography>
+        <Typography sx={{ textIndent: '1.5rem' }}>Por tudo que já vi, acho que esse projeto vai de encontro com o "Jeito Zé de Ser" e por isso achei que essa ideia serial legal :)</Typography>
 
         <Button
           onClick={onClose}

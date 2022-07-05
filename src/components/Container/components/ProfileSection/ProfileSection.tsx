@@ -1,10 +1,22 @@
+import { useEffect, useState } from 'react'
 import ProfilePhoto from '../../../../assets/ze2.png'
-import { Typography, Stack, LinearProgress } from '@mui/material'
 import { useIsMobile } from '../../../../hooks/useIsMobile'
+import { Typography, Stack, LinearProgress } from '@mui/material'
 
 export const ProfileSection: React.FC = () => {
 
   const isMobile = useIsMobile()
+
+  const [progressBarValue, setProgressBarValue] = useState(0)
+
+  useEffect(() => {
+    if(progressBarValue < 70){
+      setTimeout(() => {
+        const timeToAdd = Math.floor(Math.random() * (10 - 3 + 1)) + 3
+        setProgressBarValue(value => value += timeToAdd)
+      }, 300)
+    }
+  }, [progressBarValue])
 
   const HelperMessage = () => (
     <Stack width='90%' bgcolor='grey.50' padding={1} borderRadius={2}>
@@ -44,12 +56,13 @@ export const ProfileSection: React.FC = () => {
             color='black'
             typography={{ xs: 'h4', lg: 'h2' }}
           >
-            Olá Jozé da silva Pereira
+            Jozé da silva Pereira
           </Typography>
           <Stack>
             <Stack width={{ xs: 'auto', lg: '500px' }}>
               <LinearProgress
-                value={80}
+                value={progressBarValue}
+                // value={80}
                 variant='determinate'
                 sx={{
                   height: '12px',
@@ -61,7 +74,7 @@ export const ProfileSection: React.FC = () => {
               />
               <Stack direction='row' justifyContent='space-between'>
                 <Typography variant='text7' color='grey.200'>Seus pontos:</Typography>
-                <Typography variant='text7' color='grey.200'>1000 xp</Typography>
+                <Typography variant='text7' color='grey.200'>{progressBarValue * 10} xp</Typography>
               </Stack>
             </Stack>
           </Stack>

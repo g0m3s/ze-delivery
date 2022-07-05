@@ -1,6 +1,7 @@
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import { Slider } from './components'
 import { Button } from '@mui/material'
 import { ContainerProps } from '../../'
 import { Navigation, Pagination } from 'swiper'
@@ -54,6 +55,7 @@ export const DonateSection: React.FC<ContainerProps> = ({ SetIsDonateModalOpen }
                   {item.description}
                 </Typography>
               </Stack>
+              {/* <Slider /> */}
               <Stack mt={2} width='100%' alignItems='flex-end'>
                 <Button
                   size='large'
